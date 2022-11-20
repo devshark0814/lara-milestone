@@ -1968,7 +1968,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("h1", [_vm._v("About Page")]);
+  return _c("h1", [_vm._v("About Pageoksssss")]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
