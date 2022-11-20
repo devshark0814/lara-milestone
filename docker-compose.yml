@@ -9,6 +9,8 @@ services:
       - "8080:80"
     volumes:
       - "./src/milestone:/var/www/html"
+    depends_on:
+      - php
 
   php:
     container_name: "milestone-php"
@@ -16,3 +18,21 @@ services:
       dockerfile: "./docker/php/Dockerfile"
     volumes:
       - "./src/milestone:/var/www/html"
+    depends_on:
+      - db
+
+  db:
+    container_name: "milestone-db"
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: milestone
+      TZ: "Asia/Tokyo"
+    tty: true
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/db/conf.d:/etc/mysql/conf.d:cached
+      - ./docker/db/mysql-data:/var/lib/mysql
