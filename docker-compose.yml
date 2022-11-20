@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: "milestone-nginx"
+    build:
+      dockerfile: "./docker/nginx/Dockerfile"
+    ports:
+      - "8080:80"
+    volumes:
+      - "./src/milestone:/var/www/html"
+
+  php:
+    container_name: "milestone-php"
+    build:
+      dockerfile: "./docker/php/Dockerfile"
+    volumes:
+      - "./src/milestone:/var/www/html"
