@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+const path = require('path');
 require('laravel-mix-purgecss');
 
 /*
@@ -12,13 +13,20 @@ require('laravel-mix-purgecss');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.webpackConfig({
+   resolve: {
+      alias: {
+         '@': path.resolve('./resources/js'),
+      }
+   }
+});
 
 mix.js('resources/js/app.js', 'public/js')
    .vue()
    .sass('resources/sass/app.scss', 'public/css')
    .options({
       processCssUrls: false,
-      postCss: [ tailwindcss('./tailwind.config.js') ],
+      postCss: [tailwindcss('./tailwind.config.js')],
    })
    .purgeCss()
    // ここから下

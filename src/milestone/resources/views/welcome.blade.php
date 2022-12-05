@@ -5,6 +5,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Example</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 <body>
 
